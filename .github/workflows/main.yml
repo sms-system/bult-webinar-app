@@ -21,6 +21,11 @@ jobs:
               files:
                 - target: /app/index.html
                   content: |
-                    $(awk '{print "          " $0}' ${{ github.workspace }}/index.html)
+          $(awk '{print "          " $0}' ${{ github.workspace }}/index.html)
           EOT
-          cat patch.conf
+
+          curl --request PATCH \
+            --url 'https://bult.pro/cd/webhook?projectID=927&applyChanges=false' \
+            --header 'Authorization: Bearer ${{ secrets.BULTTOKEN }}' \
+            --header 'content-type: multipart/form-data' \
+            --form file=@patch.conf
