@@ -1,7 +1,7 @@
-name: hello-world
+name: deploy-on-bult
 on: push
 jobs:
-  my-job:
+  update-index-html:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
