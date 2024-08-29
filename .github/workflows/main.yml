@@ -20,7 +20,7 @@ jobs:
           EOT
 
           curl --request PATCH \
-            --url 'https://bult.pro/cd/webhook?projectID=927&applyChanges=true' \
+            --url 'https://bult.pro/cd/webhook?projectID=928&applyChanges=true' \
             --header 'Authorization: Bearer ${{ secrets.BULTTOKEN }}' \
             --header 'content-type: multipart/form-data' \
             --form file=@patch.conf
