@@ -13,11 +13,6 @@ jobs:
 
           containers:
             app:
-              command:
-                - /root/.local/bin/fastapi
-              args:
-                - run
-                - /app/main.py
               files:
                 - target: /app/index.html
                   content: |
@@ -25,7 +20,7 @@ jobs:
           EOT
 
           curl --request PATCH \
-            --url 'https://bult.pro/cd/webhook?projectID=927&applyChanges=false' \
+            --url 'https://bult.pro/cd/webhook?projectID=927&applyChanges=true' \
             --header 'Authorization: Bearer ${{ secrets.BULTTOKEN }}' \
             --header 'content-type: multipart/form-data' \
             --form file=@patch.conf
